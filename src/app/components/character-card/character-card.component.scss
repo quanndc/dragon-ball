@@ -1,0 +1,39 @@
+#card {
+    width: 280px;
+    margin-bottom: 5rem;
+    background-color: #3B3E43;
+    border-radius: 0.8rem;
+
+    #image-holder {
+        width: 100%;
+        background-image: url('/bg-card.webp');
+        background-size: cover;
+        background-position: center center;
+        border-top-left-radius: 0.8rem;
+        border-top-right-radius: 0.8rem;
+        img {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            max-height: 400px;
+            object-fit: contain;
+            transition: transform 0.3s ease-in-out;
+        }
+        img:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease-in-out;
+        }
+    }
+
+    #info-holder {
+        h2,h3{
+            color: white;
+        }
+        span{
+            color: #FBC02D;
+        }
+        width: 100%;
+        height: fit-content;
+        padding: 0.5rem 1rem;
+    }
+}
