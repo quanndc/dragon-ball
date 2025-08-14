@@ -1,5 +1,68 @@
 @if(!this.detailCharacter){
-    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
+    <div class="loading">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="Loading...">
+    </div>
 } @else {
-    <h1>{{this.detailCharacter.name}}</h1>
+    <div class="detail-container">
+        <div class="character-header">
+            <div class="character-image">
+                <img [src]="this.detailCharacter.image" [alt]="this.detailCharacter.name">
+            </div>
+            
+            <div class="character-info">
+                <h1 class="character-name">{{this.detailCharacter.name}}</h1>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">Race:</span>
+                        <span class="value">{{this.detailCharacter.race}}</span>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span class="label">Ki:</span>
+                        <span class="value">{{this.detailCharacter.ki}}</span>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span class="label">Max Ki:</span>
+                        <span class="value">{{this.detailCharacter.maxKi}}</span>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span class="label">Gender:</span>
+                        <span class="value">{{this.detailCharacter.gender}}</span>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span class="label">Affiliation:</span>
+                        <span class="value">{{this.detailCharacter.affiliation}}</span>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span class="label">Origin Planet:</span>
+                        <span class="value">{{this.detailCharacter.originPlanet.name}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="description-section">
+            <p class="description">{{this.detailCharacter.description}}</p>
+        </div>
+
+        <div class="transformations-section">
+            <h2 class="section-title">Transformations</h2>
+            <div class="transformations-grid">
+                @for (transformation of this.detailCharacter.transformations; track transformation.id) {
+                    <div class="transformation-card">
+                        <img [src]="transformation.image" [alt]="transformation.name">
+                        <div class="transformation-info">
+                            <h3>{{transformation.name}}</h3>
+                            <p>Ki: {{transformation.ki}}</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
 }

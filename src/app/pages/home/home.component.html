@@ -1,5 +1,7 @@
-<div id="container">
-    @for (item of data; track $index) {
-        <app-character-card [item]="item"></app-character-card>
-    }
-</div>
+@if ((isLoading$|async) == true) {
+  <mat-spinner></mat-spinner>
+} @else {
+  @for (item of (characters$ | async); track item.id) {
+    <h1>{{item.name}}</h1>
+  }
+}
